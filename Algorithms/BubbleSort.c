@@ -4,7 +4,8 @@
 
 #define ARRAYSIZE 10
 
-void BubbleSort(int array[]);
+void BubbleSortASC(int array[]);
+void BubbleSortDESC(int array[]);
 
 int main() {
 
@@ -25,10 +26,19 @@ int main() {
 
 	}
 
-	BubbleSort(array);
+	BubbleSortASC(array);
+ 
+	printf_s("Array ordered ascending \n");
 
-	printf_s("Array ordered \n");
-
+	for (int i = 0; i < ARRAYSIZE; i++)
+	{
+		printf_s("%d \n", array[i]);
+	}
+	
+	BubbleSortDESC(array);
+	
+	printf_s("Array ordered descending  \n");
+	
 	for (int i = 0; i < ARRAYSIZE; i++)
 	{
 		printf_s("%d \n", array[i]);
@@ -39,7 +49,7 @@ int main() {
 
 }
 
-void BubbleSort(int array[]) 
+void BubbleSortASC(int array[]) 
 {
 	int aux;
 
@@ -54,6 +64,28 @@ void BubbleSort(int array[])
 				aux = array[j]; // aux receive current value
 				array[j] = array[j + 1]; // current position receive next position
 				array[j + 1] = aux; // next position receive the current position
+			}
+
+		}
+
+	}
+}
+
+void BubbleSortDESC(int array[]) 
+{
+	int aux;
+
+	for (int i = 0; i < ARRAYSIZE; i++)
+	{
+		for (int j = 0; j < (ARRAYSIZE -1); j++)
+		{
+			
+			if (array[j] < array[j + 1])
+			{
+				
+				aux = array[j]; 
+				array[j] = array[j + 1]; 
+				array[j + 1] = aux; 
 			}
 
 		}
