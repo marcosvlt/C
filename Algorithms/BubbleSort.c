@@ -11,6 +11,7 @@ int main() {
 	int array[ARRAYSIZE] = { 0 };
 	srand(time(NULL));
 
+	// Create a randon array
 	for (int i = 0; i < ARRAYSIZE; i++)
 	{
 		array[i] = rand() % 100;
@@ -46,11 +47,13 @@ void BubbleSort(int array[])
 	{
 		for (int j = 0; j < (ARRAYSIZE -1); j++)
 		{
+			// If current position is greater than next position
 			if (array[j] > array[j + 1])
 			{
-				aux = array[j];
-				array[j] = array[j + 1];
-				array[j + 1] = aux;
+				// swap using temporaty variable to store de value.
+				aux = array[j]; // aux receive current value
+				array[j] = array[j + 1]; // current position receive next position
+				array[j + 1] = aux; // next position receive the current position
 			}
 
 		}
